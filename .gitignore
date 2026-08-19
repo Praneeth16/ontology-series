@@ -1,0 +1,19 @@
+.DS_Store
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+
+# Drafts, article files, and figures stay local.
+*-article.md
+*-FINAL.md
+PLAN.md
+svg-masters/
+*.svg
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
