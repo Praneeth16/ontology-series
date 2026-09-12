@@ -1,0 +1,84 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix saas: <http://example.org/saas#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+saas:Acme a saas:Account ;
+    saas:hasSubscription saas:Sub_001 .
+
+saas:Churned a owl:Class ;
+    rdfs:subClassOf saas:Account ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( saas:Account [ a owl:Class ;
+                        owl:complementOf [ a owl:Restriction ;
+                                owl:onProperty saas:hasSubscription ;
+                                owl:someValuesFrom saas:ActiveSubscription ] ] ) ] .
+
+saas:Free a saas:FreePlan .
+
+saas:Initech a saas:Account ;
+    saas:hasSubscription saas:Sub_002 .
+
+saas:belongsTo a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain saas:User ;
+    rdfs:range saas:Account .
+
+saas:filedBy a owl:ObjectProperty ;
+    rdfs:domain saas:SupportTicket ;
+    rdfs:range saas:User .
+
+saas:mrr a owl:DatatypeProperty ;
+    rdfs:domain saas:Subscription ;
+    rdfs:range xsd:decimal .
+
+saas:onPlan a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:domain saas:Subscription ;
+    rdfs:range saas:Plan .
+
+saas:ActiveSubscription a owl:Class ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( saas:Subscription [ a owl:Restriction ;
+                        owl:hasValue true ;
+                        owl:onProperty saas:isActive ] ) ] .
+
+saas:Enterprise a saas:PaidPlan .
+
+saas:Pro a saas:PaidPlan .
+
+saas:Sub_001 a saas:Subscription ;
+    saas:isActive true ;
+    saas:mrr 4200.0 ;
+    saas:onPlan saas:Enterprise .
+
+saas:Sub_002 a saas:Subscription ;
+    saas:isActive false ;
+    saas:mrr 900.0 ;
+    saas:onPlan saas:Pro .
+
+saas:SupportTicket a owl:Class .
+
+saas:hasSubscription a owl:ObjectProperty ;
+    rdfs:domain saas:Account ;
+    rdfs:range saas:Subscription .
+
+saas:isActive a owl:DatatypeProperty ;
+    rdfs:domain saas:Subscription ;
+    rdfs:range xsd:boolean .
+
+saas:FreePlan a owl:Class ;
+    rdfs:subClassOf saas:Plan .
+
+saas:PaidPlan a owl:Class ;
+    rdfs:subClassOf saas:Plan ;
+    owl:disjointWith saas:FreePlan .
+
+saas:User a owl:Class .
+
+saas:Plan a owl:Class .
+
+saas:Account a owl:Class .
+
+saas:Subscription a owl:Class .

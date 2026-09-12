@@ -97,6 +97,22 @@ pip install jupyter rdflib
 jupyter notebook ontology-101-part-1/part-1-notebook.ipynb
 ```
 
+## How to run Part 2
+
+The lab is plain Python 3.11 or newer. It needs no API key, database server, or language model.
+
+```bash
+git clone https://github.com/Praneeth16/ontology-series.git
+cd ontology-series/ontology-101-part-2
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python lab.py
+python test_lab.py
+```
+
+Open `part-2-notebook.ipynb` in Jupyter for the same walkthrough with explanations.
+
 ## Publishing notes
 
 Each article is 15 to 18 minutes. That is longer than Medium's measured 7-minute engagement peak (Sall, Medium Data Lab). The extra length is for concept-plus-lab readers. Treat 7 minutes as an essay floor, not a lab cap.

@@ -1,0 +1,9 @@
+subscription_id,account,plan,mrr,is_active
+Sub_003,Globex,Enterprise,3800,true
+Sub_004,Hooli,Enterprise,5100,true
+Sub_005,Vandelay,Pro,750,false
+Sub_006,Umbrella,Pro,900,true
+Sub_007,Stark,Enterprise,6400,true
+Sub_008,Wayne,Pro,1100,true
+Sub_009,PiedPiper,Free,0,true
+Sub_010,Soylent,Pro,850,true

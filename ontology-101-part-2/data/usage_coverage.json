@@ -1,0 +1,7 @@
+{
+  "start_inclusive": "2026-06-01",
+  "end_exclusive": "2026-08-29",
+  "complete_accounts": ["Acme", "Globex", "Hooli", "Initech", "PiedPiper", "Soylent", "Stark", "Umbrella", "Vandelay", "Wayne"],
+  "basis": "Synthetic fixture contract. The generator emits every positive daily count and omits zero counts. Completeness is stipulated for this lab, not inferred from missing rows.",
+  "event_definition": "Synthetic product activity counts; not a measured login count."
+}
